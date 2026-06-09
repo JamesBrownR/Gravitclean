@@ -1,1 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GraviTclean | Drone Exterior Cleaning Miami</title>
+  <meta name="description" content="GraviTclean specializes in drone-powered exterior cleaning for roofs, facades, and commercial properties across Miami. Faster, safer, flawless." />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      --navy:      #0d1b2a;
+      --navy-mid:  #142236;
+      --blue:      #4a7fa5;
+      --blue-light:#6aa3cc;
+      --sky:       #c8e6f7;
+      --white:     #f4f8fb;
+      --gray:      #8fa5b8;
+      --border:    rgba(74,127,165,0.2);
+
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      --max-w: 1160px;
+      --section-pad: 6rem 1.5rem;
+    }
+
+    /* ============================================================
+       RESET / BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(13, 27, 42, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--blue-light); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/GravitcleanHero.webp');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.28) saturate(0.7);
+    }
+
+    /* Signature element: subtle animated propeller watermark */
+    .hero-propeller {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.06;
+      width: min(420px, 55vw);
+      pointer-events: none;
+      animation: spin 28s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to   { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-propeller { animation: none; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--blue-light);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(244, 248, 251, 0.75);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 2px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      font-weight: 600;
+      z-index: 2;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+
+    .hero-scroll svg { opacity: 0.5; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ============================================================
+       SECTION SHARED
+    ============================================================ */
+    section { padding: var(--section-pad); }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--blue-light);
+    }
+
+    .section-body {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ============================================================
+       ABOUT / WHY DRONE
+    ============================================================ */
+    .about {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+    }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .about-img-badge strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .reasons {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .reason {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .reason-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background: rgba(74,127,165,0.15);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-light);
+      font-size: 1.1rem;
+    }
+
+    .reason-text h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .reason-text p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    .services { background: var(--navy); }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    .gallery {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 280px;
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 2rem;
+      color: var(--white);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(74,127,165,0.3);
+      border: none;
+      color: var(--white);
+      font-size: 2rem;
+      width: 48px;
+      height: 64px;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lightbox-nav:hover { background: var(--blue); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
+    /* ============================================================
+       REVIEWS
+    ============================================================ */
+    .reviews { background: var(--navy); }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .stars {
+      color: #f4c842;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .review-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .review-card:hover { border-color: var(--blue); }
+
+    .review-text {
+      font-size: 0.9rem;
+      color: rgba(244,248,251,0.8);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .review-text::before {
+      content: open-quote;
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      line-height: 0.6;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .review-date {
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(74,127,165,0.15);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text a {
+      color: var(--white);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-item-text a:hover { color: var(--blue-light); }
+
+    .contact-item-text small {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      margin-bottom: 0.15rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--gray);
+      padding: 0.6rem 1.1rem;
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group select option { background: var(--navy-mid); }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--blue);
+    }
+
+    .form-group textarea { min-height: 120px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo { height: 34px; }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-img-badge {
+        right: 1rem;
+        bottom: 1rem;
+      }
+
+      .services-grid,
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+      }
+
+      .gallery-item:first-child { grid-column: span 2; }
+
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      :root { --section-pad: 4rem 1.25rem; }
+
+      .services-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+      }
+
+      .gallery-item:first-child { grid-column: span 1; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home">
+      <img src="images/GravitcleanLogo.webp" alt="GraviTclean" class="nav-logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+13052995058" class="nav-cta">Call Us</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+
+    <!-- Signature: rotating propeller watermark -->
+    <svg class="hero-propeller" viewBox="0 0 200 200" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="100" cy="50" rx="18" ry="48" rx="18" transform="rotate(0 100 100)"/>
+      <ellipse cx="100" cy="50" rx="18" ry="48" transform="rotate(120 100 100)"/>
+      <ellipse cx="100" cy="50" rx="18" ry="48" transform="rotate(240 100 100)"/>
+      <circle cx="100" cy="100" r="10"/>
+    </svg>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Miami's Drone Cleaning Specialists</p>
+      <h1 class="hero-title">
+        Clean from<br><em>Above.</em>
+      </h1>
+      <p class="hero-sub">
+        We clean roofs, facades, and commercial properties using advanced drone technology. No ladders. No scaffolding. Spotless results.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get a Free Quote</a>
+        <a href="#services" class="btn-outline">See Our Services</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      Scroll
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 3v10M3 9l5 5 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="images/Gravitclean8.webp" alt="GraviTclean drone operator preparing for a roof cleaning" loading="lazy" />
+          <div class="about-img-badge">
+            <strong>100%</strong>
+            Damage-Free<br>Roof Cleaning
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="section-label">Why GraviTclean</p>
+          <h2 class="section-title">
+            Technology that<br><em>goes where others</em><br>can't.
+          </h2>
+          <p class="section-body">
+            At GraviTclean, we've traded ladders and scaffolding for drone technology that reaches the hardest spots on any property. Based in Miami and fully insured, we serve homeowners, HOAs, and commercial clients who want a cleaner result with zero risk to their property or our crew.
+          </p>
+          <div class="reasons">
+            <div class="reason">
+              <div class="reason-icon">🚁</div>
+              <div class="reason-text">
+                <h4>Drone-Powered</h4>
+                <p>Our drones reach angles and heights that are impossible or dangerous with traditional methods, getting a truly complete clean every time.</p>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason-icon">🛡️</div>
+              <div class="reason-text">
+                <h4>Fully Insured</h4>
+                <p>Every job is backed by full insurance coverage. Your property is in safe hands, and so is your peace of mind.</p>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason-icon">⚡</div>
+              <div class="reason-text">
+                <h4>Faster Results</h4>
+                <p>Drone cleaning cuts setup and completion time dramatically compared to conventional crews, so you're back to normal faster.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <p class="section-label">What We Do</p>
+          <h2 class="section-title">Our <em>Services</em></h2>
+        </div>
+        <p class="section-body">
+          From residential roofs to commercial facades, we handle exterior cleaning across the Miami area with the latest drone and pressure washing technology.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🏠</span>
+          <h3 class="service-name">Drone Roof Cleaning</h3>
+          <p class="service-desc">Our specialty. We clean shingle, tile, and flat roofs from above using soft wash drone technology that won't damage your roofing material.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏢</span>
+          <h3 class="service-name">Facade and Building Exterior</h3>
+          <p class="service-desc">Multi-story buildings, commercial properties, and complex facades get a thorough clean without scaffolding or rope access.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💦</span>
+          <h3 class="service-name">Soft Wash and Pressure Washing</h3>
+          <p class="service-desc">Walls, siding, and fences cleaned with the right pressure and solutions for every surface type. No damage, great results.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🧱</span>
+          <h3 class="service-name">Driveway and Patio Cleaning</h3>
+          <p class="service-desc">Concrete, pavers, and stone surfaces restored to like-new condition. Great before events, listing your home, or just because it's time.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">☀️</span>
+          <h3 class="service-name">Solar Panel Washing</h3>
+          <p class="service-desc">Dirty panels lose output. We clean them safely without voiding warranties, getting your system back to peak efficiency.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏗️</span>
+          <h3 class="service-name">Commercial Maintenance</h3>
+          <p class="service-desc">Ongoing exterior maintenance programs for HOAs, property managers, and commercial operators across the Miami area.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <p class="section-label">Our Work</p>
+        <h2 class="section-title">See the <em>Results</em></h2>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Populated by JS from assets/js/images.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="shiftLightbox(-1)" aria-label="Previous">&#8249;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" onclick="shiftLightbox(1)" aria-label="Next">&#8250;</button>
+  </div>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <p class="section-label">What Clients Say</p>
+        <h2 class="section-title">Real <em>Reviews</em></h2>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+      <div class="reviews-grid" id="reviews-grid">
+        <!-- Populated by JS from _data/reviews.yaml via inline data below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <p class="section-label">Get in Touch</p>
+          <h2 class="section-title">Ready for a<br><em>Free Quote?</em></h2>
+          <p class="section-body">
+            Whether it's a roof, a driveway, or a 10-story building, send us a message and we'll get back to you fast. We serve all of Miami-Dade and Broward.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-item-text">
+                <small>Phone</small>
+                <a href="tel:+13052995058">(305) 299-5058</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-item-text">
+                <small>Service Area</small>
+                <span>Miami-Dade and Broward County, FL</span>
+              </div>
+            </div>
+          </div>
+          <div class="social-row">
+            <a href="https://www.facebook.com/GraviTclean" target="_blank" rel="noopener noreferrer" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              Facebook
+            </a>
+            <a href="https://www.instagram.com/gravitclean" target="_blank" rel="noopener noreferrer" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Christian" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Doe" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(305) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="roof">Drone Roof Cleaning</option>
+                <option value="facade">Facade / Building Exterior</option>
+                <option value="softwash">Soft Wash / Pressure Washing</option>
+                <option value="driveway">Driveway and Patio</option>
+                <option value="solar">Solar Panel Washing</option>
+                <option value="commercial">Commercial Maintenance</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell us about your property</label>
+              <textarea id="message" name="message" placeholder="Address, property type, any details that help us give you an accurate quote..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer; font-size:1rem;">
+              Send Message
+            </button>
+            <p class="form-note">We typically respond within a few hours during business days.</p>
+            <p id="form-success" style="display:none; color:#6aa3cc; text-align:center; font-family:var(--font-display); font-weight:700; letter-spacing:0.05em; font-size:0.95rem; margin-top:0.5rem;">
+              Thanks! We'll be in touch soon.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="images/GravitcleanLogo.webp" alt="GraviTclean" class="footer-logo" />
+      <p class="footer-copy">&copy; <span id="year"></span> GraviTclean. All rights reserved. Miami, FL.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+13052995058">(305) 299-5058</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       DATA: Reviews (mirrors _data/reviews.yaml)
+       To update: edit both this array AND _data/reviews.yaml
+  ============================================================ -->
+  <script>
+    const REVIEWS = [
+      {
+        name: "Maria G.",
+        rating: 5,
+        date: "May 2025",
+        text: "Christian and his team did an incredible job on our roof. The drone technology is something else, they cleaned areas we didn't even know were dirty. Highly recommend to anyone in Miami."
+      },
+      {
+        name: "Roberto S.",
+        rating: 5,
+        date: "April 2025",
+        text: "Used GraviTclean for our commercial building facade and the results were amazing. No ladders, no scaffolding, just spotless. Will be using them for all our properties."
+      },
+      {
+        name: "Jennifer L.",
+        rating: 5,
+        date: "March 2025",
+        text: "Our solar panels are back to producing like they were new. Quick, clean, professional. The drone approach is genius for hard to reach panels on a steep roof."
+      },
+      {
+        name: "Carlos M.",
+        rating: 5,
+        date: "February 2025",
+        text: "Got the driveway and patio done. They showed up on time, explained everything, and the pavers look brand new. Great price too."
+      },
+      {
+        name: "Ana P.",
+        rating: 5,
+        date: "January 2025",
+        text: "Our HOA hired GraviTclean for the whole community and the results were outstanding. Every building looks fresh. Easy to work with and fully insured which our board required."
+      }
+    ];
+  </script>
+
+  <!-- Load image data -->
+  <script src="assets/js/images.js"></script>
+
+  <!-- ============================================================
+       MAIN SCRIPTS
+  ============================================================ -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- BUILD GALLERY ----
+    const galleryGrid = document.getElementById('gallery-grid');
+    let currentLightboxIndex = 0;
+
+    GALLERY_IMAGES.forEach((img, i) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', img.caption || 'Gallery image');
+
+      const el = document.createElement('img');
+      el.src = img.src;
+      el.alt = img.caption || 'GraviTclean work photo';
+      el.loading = 'lazy';
+
+      item.appendChild(el);
+      item.addEventListener('click', () => openLightbox(i));
+      item.addEventListener('keydown', e => { if (e.key === 'Enter') openLightbox(i); });
+      galleryGrid.appendChild(item);
+    });
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = GALLERY_IMAGES[index].src;
+      img.alt = GALLERY_IMAGES[index].caption || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function shiftLightbox(dir) {
+      currentLightboxIndex = (currentLightboxIndex + dir + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
+      openLightbox(currentLightboxIndex);
+    }
+
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') shiftLightbox(-1);
+      if (e.key === 'ArrowRight') shiftLightbox(1);
+    });
+
+    // ---- BUILD REVIEWS ----
+    const reviewsGrid = document.getElementById('reviews-grid');
+
+    REVIEWS.forEach(r => {
+      const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+      const initial = r.name.charAt(0);
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <div class="stars" aria-label="${r.rating} out of 5 stars">${stars}</div>
+        <p class="review-text">${r.text}</p>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">${initial}</div>
+          <div>
+            <p class="review-name">${r.name}</p>
+            <p class="review-date">${r.date}</p>
+          </div>
+        </div>
+      `;
+      reviewsGrid.appendChild(card);
+    });
+
+    // ---- MOBILE NAV ----
+    let menuOpen = false;
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      const links = document.querySelector('.nav-links');
+      const cta   = document.querySelector('.nav-cta');
+
+      if (menuOpen) {
+        links.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:70px; left:0; right:0; background:rgba(13,27,42,0.98); padding:1.5rem 2rem; gap:1.25rem; border-bottom:1px solid rgba(74,127,165,0.2);';
+        cta.style.cssText   = 'display:block; position:absolute; top:138px; left:0; right:0; margin:0 2rem; border-radius:4px; text-align:center; background:var(--blue); padding:0.75rem;';
+      } else {
+        links.style.cssText = '';
+        cta.style.cssText   = '';
+      }
+    }
+
+    // Close menu on nav link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (menuOpen) toggleMenu();
+      });
+    });
+
+    // ---- FORM SUBMIT ----
+    function handleSubmit(e) {
+      e.preventDefault();
+      // In production, hook this up to Formspree, Netlify Forms, or EmailJS.
+      // For now it shows a success message.
+      document.getElementById('contact-form').style.opacity = '0.5';
+      document.getElementById('contact-form').style.pointerEvents = 'none';
+      document.getElementById('form-success').style.display = 'block';
+
+      setTimeout(() => {
+        document.getElementById('contact-form').reset();
+        document.getElementById('contact-form').style.opacity = '1';
+        document.getElementById('contact-form').style.pointerEvents = '';
+        document.getElementById('form-success').style.display = 'none';
+      }, 5000);
+    }
+
+    // ---- SCROLL REVEAL ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .review-card, .gallery-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
