@@ -61,16 +61,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(13, 27, 42, 0.88);
-      backdrop-filter: blur(12px);
+      padding: 0.85rem 2.5rem;
+      background: rgba(13, 27, 42, 0.95);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
+      min-height: 72px;
     }
 
     .nav-logo {
-      height: 40px;
+      height: 56px;
       width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -81,11 +83,11 @@
 
     .nav-links a {
       font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--gray);
+      color: rgba(244,248,251,0.7);
       transition: color 0.2s;
     }
 
@@ -93,15 +95,16 @@
 
     .nav-cta {
       font-family: var(--font-display);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       background: var(--blue);
       color: var(--white);
-      padding: 0.5rem 1.25rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 4px;
       transition: background 0.2s;
+      white-space: nowrap;
     }
 
     .nav-cta:hover { background: var(--blue-light); }
@@ -135,7 +138,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding-top: 80px;
+      padding-top: 72px;
     }
 
     .hero-bg {
@@ -587,7 +590,7 @@
 
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
     }
 
@@ -604,6 +607,10 @@
 
     .review-card:hover { border-color: var(--blue); }
 
+    .review-card--no-text {
+      padding: 1.25rem 1.5rem;
+    }
+
     .review-text {
       font-size: 0.9rem;
       color: rgba(244,248,251,0.8);
@@ -611,7 +618,7 @@
       flex: 1;
     }
 
-    .review-text::before {
+    .review-text:not(.review-text--muted)::before {
       content: open-quote;
       font-family: Georgia, serif;
       font-size: 3rem;
@@ -619,6 +626,12 @@
       color: var(--blue);
       display: block;
       margin-bottom: 0.5rem;
+    }
+
+    .review-text--muted {
+      color: var(--gray);
+      font-style: italic;
+      font-size: 0.82rem;
     }
 
     .review-author {
@@ -1183,36 +1196,104 @@
        To update: edit both this array AND _data/reviews.yaml
   ============================================================ -->
   <script>
+    // Real Google reviews. All 5 stars.
+    // Reviews without a text body are included as name-only cards.
     const REVIEWS = [
       {
-        name: "Maria G.",
+        name: "Masiel Dorta",
         rating: 5,
-        date: "May 2025",
-        text: "Christian and his team did an incredible job on our roof. The drone technology is something else, they cleaned areas we didn't even know were dirty. Highly recommend to anyone in Miami."
+        date: "9 months ago",
+        text: "Latest technology, professional, punctual, quality service. I recommend them 100%. I received a letter from the association saying I needed to have the roof and front of my house cleaned, I contacted them and everything turned out perfectly!"
       },
       {
-        name: "Roberto S.",
+        name: "Ariagna Gonzalez",
         rating: 5,
-        date: "April 2025",
-        text: "Used GraviTclean for our commercial building facade and the results were amazing. No ladders, no scaffolding, just spotless. Will be using them for all our properties."
+        date: "8 months ago",
+        text: "I'm very happy with GraviTclean's service. They're very professional, arrived on time, and the work was impeccable. My sidewalk looks brand new. I would definitely use their service again and I recommend them 100%."
       },
       {
-        name: "Jennifer L.",
+        name: "Luis David Milan",
         rating: 5,
-        date: "March 2025",
-        text: "Our solar panels are back to producing like they were new. Quick, clean, professional. The drone approach is genius for hard to reach panels on a steep roof."
+        date: "4 months ago",
+        text: "Unique and meticulous service, I recommend it 100% without risking even an inch of my roof."
       },
       {
-        name: "Carlos M.",
+        name: "Alejandro Fernandez",
         rating: 5,
-        date: "February 2025",
-        text: "Got the driveway and patio done. They showed up on time, explained everything, and the pavers look brand new. Great price too."
+        date: "9 months ago",
+        text: "100% satisfied with the work. If you need a job well done, hire Gravitclean and you won't regret it!"
       },
       {
-        name: "Ana P.",
+        name: "Gabriel Lopez",
         rating: 5,
-        date: "January 2025",
-        text: "Our HOA hired GraviTclean for the whole community and the results were outstanding. Every building looks fresh. Easy to work with and fully insured which our board required."
+        date: "9 months ago",
+        text: "My roof and driveway look brand new. Highly recommend."
+      },
+      {
+        name: "Ernesto Borges",
+        rating: 5,
+        date: "9 months ago",
+        text: "Recommended by a friend. Excellent attention and service, very professional in their work. More than grateful."
+      },
+      {
+        name: "Jose Luis",
+        rating: 5,
+        date: "7 months ago",
+        text: "Very pleased with the work, I recommend them for sure."
+      },
+      {
+        name: "Elisa Fernandez De Lara",
+        rating: 5,
+        date: "7 months ago",
+        text: "Super professional work and wonderful guys."
+      },
+      {
+        name: "Eduardo Vazquez",
+        rating: 5,
+        date: "9 months ago",
+        text: "Very professional and top quality service, recommended."
+      },
+      {
+        name: "Marlon Gonzalez",
+        rating: 5,
+        date: "9 months ago",
+        text: "Great service and quality. The best of the best, highly recommend them."
+      },
+      {
+        name: "Yuniesky Gurriel",
+        rating: 5,
+        date: "9 months ago",
+        text: "The best in the business."
+      },
+      {
+        name: "YanLuis Gonzalez",
+        rating: 5,
+        date: "9 months ago",
+        text: null
+      },
+      {
+        name: "Osmany Dorta",
+        rating: 5,
+        date: "9 months ago",
+        text: null
+      },
+      {
+        name: "OD Cargo Solutions Corp",
+        rating: 5,
+        date: "9 months ago",
+        text: null
+      },
+      {
+        name: "Maria Morejon",
+        rating: 5,
+        date: "9 months ago",
+        text: null
+      },
+      {
+        name: "Michel Lopez Dorta",
+        rating: 5,
+        date: "9 months ago",
+        text: null
       }
     ];
   </script>
@@ -1288,10 +1369,15 @@
       const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
       const initial = r.name.charAt(0);
       const card = document.createElement('div');
-      card.className = 'review-card';
+      card.className = 'review-card' + (r.text ? '' : ' review-card--no-text');
+
+      const bodyHTML = r.text
+        ? `<p class="review-text">${r.text}</p>`
+        : `<p class="review-text review-text--muted">5-star review on Google</p>`;
+
       card.innerHTML = `
         <div class="stars" aria-label="${r.rating} out of 5 stars">${stars}</div>
-        <p class="review-text">${r.text}</p>
+        ${bodyHTML}
         <div class="review-author">
           <div class="review-avatar" aria-hidden="true">${initial}</div>
           <div>
